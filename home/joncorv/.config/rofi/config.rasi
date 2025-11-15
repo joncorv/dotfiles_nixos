@@ -1,0 +1,45 @@
+configuration {
+  show-icons: true;
+  icon-theme: "Yaru-purple-dark";
+  drun-display-format: "{icon} {name}";
+}
+
+//@theme "/home/joncorv/.config/rofi/themes/rounded-purple-dark.rasi"
+
+//@theme "/home/joncorv/.config/rofi/themes/squared-nord.rasi"
+
+//@theme "/home/joncorv/.local/share/rofi/themes/spotlight-dark.rasi"
+
+//@theme "/home/joncorv/.local/share/rofi/themes/windows11-grid-dark.rasi"
+
+//@theme "/home/joncorv/.config/rofi/themes/windows11-grid-dark.rasi"
+
+//@theme "/home/joncorv/.local/share/rofi/themes/rounded-purple-dark.rasi"
+
+//@theme "/nix/store/r6by463p9aqp6rk0rd23ljzwjrxs1dzd-rofi-2.0.0/share/rofi/themes/Arc-Dark.rasi"
+
+//@theme "/nix/store/r6by463p9aqp6rk0rd23ljzwjrxs1dzd-rofi-2.0.0/share/rofi/themes/arthur.rasi"
+
+//@theme "/home/joncorv/.config/rofi/themes/windows11-list-dark.rasi"
+
+//@theme "/home/joncorv/.local/share/rofi/themes/launchpad.rasi"
+
+//@theme "/home/joncorv/.config/rofi/themes/rounded-purple-dark.rasi"
+
+//@theme "/home/joncorv/.config/rofi/themes/spotlight-dark.rasi"
+
+//@theme "/home/joncorv/.local/share/rofi/themes/spotlight.rasi"
+
+//@theme "/home/joncorv/.config/rofi/themes/rounded-purple-dark.rasi"
+
+//@theme "/home/joncorv/.config/rofi/themes/nord.rasi"
+
+//@theme "/home/joncorv/.local/share/rofi/themes/simple-tokyonight.rasi"
+
+//@theme "/home/joncorv/.local/share/rofi/themes/rounded-green-dark.rasi"
+
+//@theme "/home/joncorv/.config/rofi/themes/squared-nord.rasi"
+
+//@theme "/nix/store/r6by463p9aqp6rk0rd23ljzwjrxs1dzd-rofi-2.0.0/share/rofi/themes/iggy.rasi"
+
+@theme "/home/joncorv/.config/rofi/themes/spotlight.rasi"
