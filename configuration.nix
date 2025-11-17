@@ -8,9 +8,11 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/sddm.nix
+    # ./modules/sddm.nix
     ./modules/boot.nix
   ];
+
+  hardware.amdgpu.initrd.enable = true;
 
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "yes";
@@ -49,7 +51,7 @@
 
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
+    # withUWSM = true;
     xwayland.enable = true;
   };
 
