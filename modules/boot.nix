@@ -1,29 +1,56 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
 
-  services.getty.autologinUser = "joncorv";
+  services.greetd = {
+    enable = true;
+    settings = {
+      initial_session = {
+        command = "Hyprland";
+        user = "joncorv";
+      };
+      default_session = {
+        command = "Hyprland";
+        user = "greeter";
+      };
+    };
+  };
+
   boot = {
+    # Early KMS for proper Plymouth resolution
+    # initrd = {
+    #   systemd.enable = true;
+    #   kernelModules = [
+    #     "amdgpu" # For AMD GPUs
+    #   ];
+    #   verbose = false;
+    # };
+
+    # graphical support for entering password
+    initrd.systemd.enable = true;
 
     plymouth = {
       enable = true;
-      theme = "rings";
+      theme = "catppuccin-macchiato";
+      # theme = "cuts";
       themePackages = with pkgs; [
-        # By default we would install all themes
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
+          selected_themes = [
+            "rings"
+            "cuts"
+          ];
         })
+        catppuccin-plymouth
       ];
     };
 
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
-      loader.timeout = 0;
-
+      timeout = 0;
     };
-    # Enable "Silent boot"
+
+    # this is more verbose
     consoleLogLevel = 3;
-    initrd.verbose = false;
     kernelParams = [
       "quiet"
       "splash"
@@ -31,9 +58,14 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
     ];
-    # Hide the OS choice for bootloaders.
-    # It's still possible to open the bootloader list by pressing any key
-    # It will just not appear on screen unless a key is pressed
+
+    # this is CLEAN
+    # consoleLogLevel = 0;
+    # kernelParams = [
+    #   "quiet"
+    #   "splash"
+    #   "boot.shell_on_fail"
+    # ];
 
   };
 }
