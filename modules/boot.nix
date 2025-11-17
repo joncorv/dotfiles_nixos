@@ -30,8 +30,9 @@
 
     plymouth = {
       enable = true;
-      theme = "catppuccin-macchiato";
-      # theme = "cuts";
+      # theme = "matrix";
+      # theme = "catppuccin-macchiato";
+      theme = "cuts";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
           selected_themes = [
@@ -40,6 +41,7 @@
           ];
         })
         catppuccin-plymouth
+        plymouth-matrix-theme
       ];
     };
 
