@@ -191,6 +191,7 @@
       set -g fish_pager_color_progress 6f7c9f
       set -g fish_pager_color_prefix 04d1f9
       set -g fish_pager_color_completion cdd6f4
+      set -g fish_color_completion cdd6f4
       set -g fish_pager_color_description 6f7c9f
     '';
   };
@@ -198,17 +199,12 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#nixos-btw";
+      rebuild = "sudo nixos-rebuild switch --flake /home/joncorv/dotfiles#giantvoidryzen";
       update = "cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#giantvoidryzen";
       ls = "eza -la";
       sudovim = "sudo -E nvim .";
       dots = "stow -v -t ~ -d ~/dotfiles/home/joncorv .";
     };
-    profileExtra = ''
-      if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-        exec uwsm start -S hyprland-uwsm.desktop
-      fi
-    '';
     initExtra = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
       then
