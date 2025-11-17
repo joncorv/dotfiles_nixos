@@ -12,9 +12,9 @@ return {
     -- plugins = {
     --   non_standalone = false,
     -- },
-    -- storage = {
-    --   home = vim.fn.expand("~/.local/share/nvim/leetcode"),
-    --   cache = vim.fn.expand("~/.cache/nvim/leetcode"),
-    -- },
+    storage = {
+      home = vim.fn.expand("~/Documents/leetcode_omakase"),
+      --   cache = vim.fn.expand("~/.cache/nvim/leetcode"),
+    },
   },
 }
