@@ -32,7 +32,7 @@
 
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim;
+    # package = pkgs.neovim;
     defaultEditor = true;
     extraPackages = with pkgs; [
       lua-language-server
@@ -163,11 +163,11 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake /home/joncorv/dotfiles#nixos-btw";
-      # rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#nixos-btw";
-      update = "cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#nixos-btw";
+      rebuild = "sudo nixos-rebuild switch --flake /home/joncorv/dotfiles#giantvoidryzen";
+      update = "cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#giantvoidryzen";
       ls = "eza -la";
       sudovim = "sudo -E nvim .";
+      dots = "stow -v -t ~ -d ~/dotfiles/home/joncorv .";
     };
     interactiveShellInit = ''
       # Clear greeting
@@ -199,8 +199,10 @@
     enable = true;
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#nixos-btw";
+      update = "cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#giantvoidryzen";
       ls = "eza -la";
       sudovim = "sudo -E nvim .";
+      dots = "stow -v -t ~ -d ~/dotfiles/home/joncorv .";
     };
     profileExtra = ''
       if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then

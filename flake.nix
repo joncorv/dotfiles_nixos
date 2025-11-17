@@ -25,7 +25,7 @@
       ...
     }:
     {
-      nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.giantvoidryzen = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
@@ -43,7 +43,7 @@
           }
           {
             environment.systemPackages = [
-              filera.packages.x86_64-linux.default
+              # filera.packages.x86_64-linux.default
 
             ];
           }

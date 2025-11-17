@@ -9,10 +9,9 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/sddm.nix
+    ./modules/boot.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "yes";
   services.tailscale.enable = true;
@@ -126,6 +125,7 @@
     gnome-disk-utility
     gnome-calendar
     blender
+    bitwarden-desktop
 
     # hyprpaper
     hyprlock
