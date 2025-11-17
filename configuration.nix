@@ -20,15 +20,9 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
-  # get nautilus to work nicely
   services.dbus.enable = true;
   services.udisks2.enable = true;
   services.gnome.sushi.enable = true;
-
-  # nix.settings.trusted-users = [
-  #   "root"
-  #   "joncorv"
-  # ];
 
   nix.settings = {
     trusted-users = [
@@ -67,91 +61,19 @@
   services.gvfs.enable = true;
 
   programs.firefox.enable = true;
+
   environment.systemPackages = with pkgs; [
     vim
     wget
-    kitty
     gh
-    stow
-
-    rustc
-    cargo
-    rustfmt
-    clippy
-    rust-analyzer
-
-    nixfmt-rfc-style
-    clang
-    clang-tools
-    gcc
-    ruff
-    stylua
-    vue-language-server
-    vtsls
-    prettierd
-    tailwindcss-language-server
-    shfmt
-    basedpyright
-    black
-    isort
-    ruff
-    typescript-language-server
-    nixd
-    fzf
-    curl
-    ripgrep
-    fd
-    lazygit
-    lazydocker
-    tree-sitter
-    nodejs
-    yarn
-    uv
-    python314
-    eza
-    atuin
-    wofi
-    nautilus
-    spotify
-    loupe
-    celluloid
-    obsidian
-    gsettings-desktop-schemas
     gvfs
     cacert
-    gnome-font-viewer
-    font-manager
-    resources
-    gnome-calculator
-    gnome-clocks
-    gnome-disk-utility
-    gnome-calendar
-    blender
-    bitwarden-desktop
-
-    # hyprpaper
-    hyprlock
-    hypridle
-    hyprsysteminfo
-    hyprcursor
-    hyprutils
-    hyprgraphics
-    pavucontrol
-    mpvpaper
-
-    # dunst
-    pipewire
-    rofi
     dconf
+    pipewire
     xdg-user-dirs
     xdg-user-dirs-gtk
-
-    # sddm-astronaut
-
-    slack
-    chromium
-    neovide
-
+    curl
+    gsettings-desktop-schemas
   ];
 
   nixpkgs.config.allowUnfree = true;

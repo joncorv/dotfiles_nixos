@@ -43,7 +43,7 @@
           }
           {
             environment.systemPackages = [
-              # filera.packages.x86_64-linux.default
+              filera.packages.x86_64-linux.default
 
             ];
           }
