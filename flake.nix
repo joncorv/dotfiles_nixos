@@ -28,13 +28,13 @@
       nixosConfigurations.giantvoidryzen = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./hosts/giantvoidryzen/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.joncorv = import ./home.nix;
+              users.joncorv = import ./home/home.nix;
               backupFileExtension = "backup";
               extraSpecialArgs = { inherit filera; };
             };
