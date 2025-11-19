@@ -18,6 +18,7 @@
   ];
 
   imports = [
+    ./config_symlinks.nix
     ./modules/cli.nix
     ./modules/gui_apps.nix
     ./modules/lsp.nix
