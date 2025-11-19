@@ -10,7 +10,8 @@
     lazydocker
     eza
     atuin
-    socat
+    socat # deleted to test waypaper
+    kitty
   ];
 
   programs.git = {
@@ -31,41 +32,41 @@
     enable = true;
   };
 
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      colors = {
-        primary = {
-          background = "#212337";
-          foreground = "#ebfafa";
-        };
-        cursor = {
-          text = "#212337";
-          cursor = "#ebfafa";
-        };
-        normal = {
-          black = "#212337";
-          red = "#f16c75";
-          green = "#37f499";
-          yellow = "#f1fc79";
-          blue = "#04d1f9";
-          magenta = "#a48cf2";
-          cyan = "#7081d0";
-          white = "#ebfafa";
-        };
-        bright = {
-          black = "#323449";
-          red = "#f16c75";
-          green = "#37f499";
-          yellow = "#f1fc79";
-          blue = "#04d1f9";
-          magenta = "#a48cf2";
-          cyan = "#7081d0";
-          white = "#ebfafa";
-        };
-      };
-    };
-  };
+  # programs.alacritty = {
+  #   enable = true;
+  #   settings = {
+  #     colors = {
+  #       primary = {
+  #         background = "#212337";
+  #         foreground = "#ebfafa";
+  #       };
+  #       cursor = {
+  #         text = "#212337";
+  #         cursor = "#ebfafa";
+  #       };
+  #       normal = {
+  #         black = "#212337";
+  #         red = "#f16c75";
+  #         green = "#37f499";
+  #         yellow = "#f1fc79";
+  #         blue = "#04d1f9";
+  #         magenta = "#a48cf2";
+  #         cyan = "#7081d0";
+  #         white = "#ebfafa";
+  #       };
+  #       bright = {
+  #         black = "#323449";
+  #         red = "#f16c75";
+  #         green = "#37f499";
+  #         yellow = "#f1fc79";
+  #         blue = "#04d1f9";
+  #         magenta = "#a48cf2";
+  #         cyan = "#7081d0";
+  #         white = "#ebfafa";
+  #       };
+  #     };
+  #   };
+  # };
 
   programs.zoxide = {
     enable = true;
@@ -84,7 +85,7 @@
     enable = true;
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /home/joncorv/dotfiles#giantvoidryzen";
-      update = "cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#giantvoidryzen";
+      update = "cd /home/joncorv/dotfiles && sudo nix flake update && sudo nixos-rebuild switch --flake .#giantvoidryzen";
       ls = "eza -la";
       sudovim = "sudo -E nvim .";
       dots = "stow -v -t ~ -d ~/dotfiles/home/joncorv .";
@@ -120,7 +121,7 @@
     enable = true;
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch --flake /home/joncorv/dotfiles#giantvoidryzen";
-      update = "cd /etc/nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#giantvoidryzen";
+      update = "cd /home/joncorv/dotfiles && sudo nix flake update && sudo nixos-rebuild switch --flake .#giantvoidryzen";
       ls = "eza -la";
       sudovim = "sudo -E nvim .";
       dots = "stow -v -t ~ -d ~/dotfiles/home/joncorv .";
