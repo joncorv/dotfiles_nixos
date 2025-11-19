@@ -440,5 +440,10 @@
   "theme.bar.buttons.modules.worldclock.icon": "#37f499",
   "theme.bar.buttons.modules.worldclock.icon_background": "#f265b5",
   "theme.bar.buttons.modules.worldclock.border": "#37f499",
-  "theme.font.weight": 500
+  "theme.font.weight": 500,
+  "menus.clock.time.hideSeconds": true,
+  "theme.bar.buttons.windowtitle.enableBorder": false,
+  "bar.clock.format": "%a %b %d  %I:%M %p",
+  "bar.clock.showIcon": true,
+  "bar.clock.showTime": true
 }
