@@ -8,7 +8,7 @@ return {
   opts = {
     lang = "python3",
     picker = { provider = "fzf-lua" },
-    image_support = true,
+    -- image_support = true,
     -- plugins = {
     --   non_standalone = false,
     -- },
