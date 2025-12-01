@@ -10,6 +10,8 @@
     ./hardware-configuration.nix
     # ./modules/sddm.nix
     ../../modules/boot.nix
+    ../../modules/hyprland.nix
+    # ../../modules/niri.nix
   ];
 
   hardware.amdgpu.initrd.enable = true;
@@ -120,5 +122,4 @@
     "flakes"
   ];
   system.stateVersion = "25.05";
-
 }
