@@ -7,7 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    filera.url = "github:joncorv/filera/release";
+    # filera.url = "github:joncorv/filera/release";
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +20,7 @@
       self,
       nixpkgs,
       home-manager,
-      filera,
+      # filera,
       neovim-nightly-overlay,
       ...
     }:
@@ -36,14 +36,14 @@
               useUserPackages = true;
               users.joncorv = import ./home/home.nix;
               backupFileExtension = "backup";
-              extraSpecialArgs = { inherit filera; };
+              # extraSpecialArgs = { inherit filera; };
             };
 
             nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
           }
           {
             environment.systemPackages = [
-              filera.packages.x86_64-linux.default
+              # filera.packages.x86_64-linux.default
 
             ];
           }
