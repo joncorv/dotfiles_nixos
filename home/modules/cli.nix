@@ -12,6 +12,8 @@
     atuin
     socat # deleted to test waypaper
     kitty
+    patchelf
+    dpkg
   ];
 
   programs.git = {
@@ -89,6 +91,8 @@
       ls = "eza -la";
       sudovim = "sudo -E nvim .";
       dots = "stow -v -t ~ -d ~/dotfiles/home/joncorv .";
+      y = "yazi";
+      lucid = "/opt/lucidapp/resources/Lucid";
     };
     interactiveShellInit = ''
       # Clear greeting
