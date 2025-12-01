@@ -19,15 +19,17 @@
     gnome-disk-utility
     gnome-calendar
     blender
-    hyprlock
-    hypridle
-    hyprsysteminfo
-    hyprcursor
-    hyprutils
-    hyprgraphics
+    # hyprlock
+    # hypridle
+    # hyprsysteminfo
+    # hyprcursor
+    # hyprutils
+    # hyprgraphics
+    waypaper
     pavucontrol
     mpvpaper
-    waypaper
     rofi
+    fuzzel
+    swaylock
   ];
 }
