@@ -15,6 +15,7 @@
     patchelf
     dpkg
     git-filter-repo
+
   ];
 
   programs.git = {
