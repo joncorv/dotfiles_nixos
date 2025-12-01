@@ -14,15 +14,26 @@
 
   hardware.amdgpu.initrd.enable = true;
 
-  services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "yes";
-  services.tailscale.enable = true;
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+  };
 
-  services.dbus.enable = true;
-  services.udisks2.enable = true;
-  services.gnome.sushi.enable = true;
+  # hoping this makes my wifi card recognized
+  hardware.enableRedistributableFirmware = true;
+  boot.kernelModules = [ "ath9k" ];
+
+  services = {
+    openssh.enable = true;
+    openssh.settings.PermitRootLogin = "no";
+    tailscale.enable = true;
+    dbus.enable = true;
+    udisks2.enable = true;
+    gnome.sushi.enable = true;
+    resolved.enable = true;
+    # gnome files stuff
+    gvfs.enable = true;
+  };
 
   nix.settings = {
     trusted-users = [
@@ -31,14 +42,15 @@
     ];
     substituters = [
       "https://cache.nixos.org"
-      "https://filera.cachix.org"
+      # "https://filera.cachix.org"
       "https://neovim-nightly.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "filera.cachix.org-1:yx3+MmKusxFNI8/64NP0D4FZE9F1pXCGgyI7TPuAcEQ="
+      # "filera.cachix.org-1:yx3+MmKusxFNI8/64NP0D4FZE9F1pXCGgyI7TPuAcEQ="
     ];
     auto-optimise-store = true;
+    download-buffer-size = 524288000; # 500 MiB
   };
 
   time.timeZone = "America/Los_Angeles";
@@ -51,14 +63,14 @@
 
   users.users.joncorv = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     packages = with pkgs; [
       tree
     ];
   };
-
-  # gnome files stuff
-  services.gvfs.enable = true;
 
   programs.firefox.enable = true;
 
