@@ -22,6 +22,8 @@
     ./modules/cli.nix
     ./modules/gui_apps.nix
     ./modules/lsp.nix
+    # ./modules/hyprland.nix
+    # ./modules/niri.nix
   ];
 
   home.pointerCursor = {
