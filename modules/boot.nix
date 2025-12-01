@@ -1,19 +1,19 @@
 { pkgs, ... }:
 {
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      initial_session = {
-        command = "Hyprland";
-        user = "joncorv";
-      };
-      default_session = {
-        command = "Hyprland";
-        user = "greeter";
-      };
-    };
-  };
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     initial_session = {
+  #       command = "Hyprland";
+  #       user = "joncorv";
+  #     };
+  #     default_session = {
+  #       command = "Hyprland";
+  #       user = "greeter";
+  #     };
+  #   };
+  # };
 
   boot = {
     # Early KMS for proper Plymouth resolution
