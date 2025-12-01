@@ -19,5 +19,7 @@ in
     ".config/waybar_bak".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/waybar_bak";
 
     ".config/wezterm".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/wezterm";
+
+    ".config/niri".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/niri";
   };
 }
