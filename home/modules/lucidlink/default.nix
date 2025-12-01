@@ -1,38 +1,56 @@
-{
-  lib,
-  stdenv,
-  dpkg,
-  ar,
-  tar,
-  gzip,
-}:
+{ pkgs, ... }:
 
-stdenv.mkDerivation {
-  pname = "lucidlink";
-  version = "2.9.7426"; # Update when you refresh the .deb
+pkgs.stdenv.mkDerivation rec {
+  # ... (all contents from your sources 1, 2, 3, including pname, version, etc.)
 
-  src = ./lucid_2.9.7246_amd64.deb; # update package name too
-  # src = ./lucid_${version}_amd64.deb;
-
-  nativeBuildInputs = [
-    dpkg
-    ar
-    tar
-    gzip
+  buildInputs = [
+    pkgs.stdenv.cc.cc.lib
+    pkgs.glibc
+    pkgs.fuse3 # Keep fuse3 here
+    pkgs.libfuse # ADDED: FUSE libraries
+    pkgs.pkg-config # ADDED: Tool for finding libraries
+    pkgs.alsa-lib
+    pkgs.at-spi2-atk
+    pkgs.at-spi2-core
+    pkgs.atk
+    pkgs.cairo
+    pkgs.cups
+    pkgs.dbus
+    pkgs.expat
+    pkgs.gdk-pixbuf
+    pkgs.glib
+    pkgs.gtk3
+    pkgs.libdrm
+    pkgs.mesa
+    pkgs.libxkbcommon
+    pkgs.nspr
+    pkgs.nss
+    pkgs.pango
+    pkgs.xorg.libX11
+    pkgs.xorg.libxcb
+    pkgs.xorg.libXcomposite
+    pkgs.xorg.libXcursor
+    pkgs.xorg.libXdamage
+    pkgs.xorg.libXext
+    pkgs.xorg.libXfixes
+    pkgs.xorg.libXi
+    pkgs.xorg.libXrandr
+    pkgs.xorg.libXrender
+    pkgs.xorg.libXScrnSaver
+    pkgs.xorg.libXtst
   ];
 
-  unpackPhase = ''
-    ar x $src
-    tar xzf data.tar.gz
-  '';
+  # ... (installPhase is the same, including the symlink fix)
 
-  installPhase = ''
-    mkdir -p $out
-    cp -r usr/* $out/
-  '';
+  postFixup = ''
+    wrapProgram $out/opt/lucidapp/resources/Lucid \
+      --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.fuse3 ]} \
+      --prefix LD_LIBRARY_PATH : ${pkgs.lib.makeLibraryPath buildInputs}
 
-  meta = {
-    description = "LucidLink filesystem client";
-    platforms = [ "x86_64-linux" ];
-  };
+    # NEW WRAPPER ACTION: Wrap the main binary to explicitly set FUSE variables
+    wrapProgram $out/opt/lucidapp/resources/Lucid \
+        --set FUSERMOUNT_PATH ${pkgs.fuse3}/bin/fusermount3 \
+        --set LIBFUSE_PATH ${pkgs.libfuse}
+  '';
 }
+# NO closing brace here
