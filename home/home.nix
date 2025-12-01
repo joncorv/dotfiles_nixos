@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  filera,
+  # filera,
   ...
 }:
 
@@ -13,9 +13,9 @@
   programs.waybar.enable = false;
   programs.hyprpanel.enable = true;
 
-  home.packages = with pkgs; [
-    filera.packages.${system}.default
-  ];
+  # home.packages = with pkgs; [
+  #   filera.packages.${system}.default
+  # ];
 
   imports = [
     ./config_symlinks.nix
