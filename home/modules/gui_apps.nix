@@ -31,5 +31,6 @@
     rofi
     fuzzel
     swaylock
+    zed-editor-fhs
   ];
 }
