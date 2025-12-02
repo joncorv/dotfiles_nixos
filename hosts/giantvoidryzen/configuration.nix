@@ -35,6 +35,7 @@
     resolved.enable = true;
     # gnome files stuff
     gvfs.enable = true;
+    blueman.enable = true;
   };
 
   nix.settings = {
