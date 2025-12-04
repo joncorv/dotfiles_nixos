@@ -1,5 +1,5 @@
 {
-  description = "Hyprland on Nixos";
+  description = "joncorv hero nix systems";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -25,29 +25,56 @@
       ...
     }:
     {
-      nixosConfigurations.giantvoidryzen = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/giantvoidryzen/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.joncorv = import ./home/home.nix;
-              backupFileExtension = "backup";
-              # extraSpecialArgs = { inherit filera; };
-            };
+      nixosConfigurations = {
+	      giantvoidryzen = nixpkgs.lib.nixosSystem {
+		system = "x86_64-linux";
+		modules = [
+		  ./hosts/giantvoidryzen/configuration.nix
+		  home-manager.nixosModules.home-manager
+		  {
+		    home-manager = {
+		      useGlobalPkgs = true;
+		      useUserPackages = true;
+		      users.joncorv = import ./home/home.nix;
+		      backupFileExtension = "backup";
+		      # extraSpecialArgs = { inherit filera; };
+		    };
 
-            nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
-          }
-          {
-            environment.systemPackages = [
-              # filera.packages.x86_64-linux.default
+		    nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
+		  }
+		  {
+		    environment.systemPackages = [
+		      # filera.packages.x86_64-linux.default
 
-            ];
-          }
-        ];
+		    ];
+		  }
+		];
+	      };
+
+	      andromeda = nixpkgs.lib.nixosSystem {
+		system = "x86_64-linux";
+		modules = [
+		  ./hosts/andromeda/configuration.nix
+		  home-manager.nixosModules.home-manager
+		  {
+		    home-manager = {
+		      useGlobalPkgs = true;
+		      useUserPackages = true;
+		      users.joncorv = import ./home/andromeda/home.nix;
+		      backupFileExtension = "backup";
+		      extraSpecialArgs = { inherit filera; };
+		    };
+
+		    nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
+		  }
+		  {
+		    environment.systemPackages = [
+		      # filera.packages.x86_64-linux.default
+
+		    ];
+		  }
+		];
+	      };
       };
     };
 }
