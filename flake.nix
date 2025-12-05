@@ -60,9 +60,9 @@
 		    home-manager = {
 		      useGlobalPkgs = true;
 		      useUserPackages = true;
-		      users.joncorv = import ./home/andromeda/home.nix;
+		      users.astro = import ./home/astro/home.nix;
 		      backupFileExtension = "backup";
-		      extraSpecialArgs = { inherit filera; };
+		      # extraSpecialArgs = { inherit filera; };
 		    };
 
 		    nixpkgs.overlays = [ neovim-nightly-overlay.overlays.default ];
