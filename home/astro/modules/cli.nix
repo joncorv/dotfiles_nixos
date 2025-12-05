@@ -12,6 +12,7 @@
     atuin
     socat # deleted to test waypaper
     kitty
+    ghostty
     patchelf
     dpkg
     git-filter-repo
