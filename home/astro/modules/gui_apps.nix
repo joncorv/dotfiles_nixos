@@ -18,6 +18,7 @@
     # gnome-clocks
     # gnome-disk-utility
     gnome-calendar
+    gnome-tweaks
     # blender
     # hyprlock
     # hypridle
