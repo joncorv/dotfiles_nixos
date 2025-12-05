@@ -8,6 +8,8 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/jellyfin.nix
+    ../../modules/cloudflared.nix
     # ./modules/sddm.nix
     # ../../modules/boot.nix
     # ../../modules/hyprland.nix
@@ -39,6 +41,7 @@
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
+  security.rtkit.enable = true;
 
   services = {
     openssh.enable = true;
@@ -46,7 +49,6 @@
     tailscale.enable = true;
     resolved.enable = true;
     printing.enable = true;
-    rtkit.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
