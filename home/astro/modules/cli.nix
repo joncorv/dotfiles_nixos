@@ -51,7 +51,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake /home/joncorv/dotfiles#andromeda";
+      rebuild = "sudo nixos-rebuild switch --flake /home/astro/dotfiles#andromeda";
       update = "cd /home/astro/dotfiles && sudo nix flake update && sudo nixos-rebuild switch --flake .#andromeda";
       ls = "eza -la";
       sudovim = "sudo -E nvim .";
