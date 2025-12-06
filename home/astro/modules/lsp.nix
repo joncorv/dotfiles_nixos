@@ -12,7 +12,7 @@
     isort
     isort
     # lua-language-server
-    neovide
+    # neovide
     nixd
     nixfmt-rfc-style
     nodejs
